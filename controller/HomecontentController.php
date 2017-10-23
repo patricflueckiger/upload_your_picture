@@ -8,7 +8,7 @@ class HomecontentController{
       //   View Klasse beschrieben.
       $view = new View('homecontent');
       $view->title = 'Startseite';
-      $view->heading = 'Startseite';
+    
       $view->display();
   }
 }
