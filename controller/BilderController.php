@@ -82,5 +82,14 @@ class BilderController {
         }
     }
 
+    function edit() {
+      $bildRepository = new BilderRepository();
+      $id = $_GET['id'];
+      $view = new View('bearbeiten');
+      $view->title = 'Bild bearbeiten';
+      $bildRepository->readById($id);
+      $view->display();
+    }
+
 }
 ?>

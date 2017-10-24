@@ -14,7 +14,7 @@
               <p><?php echo $bilder[$i -1]->beschreibung?></p>
             </div>
             <img src="<?php echo $bilder[$i - 1]->picture_pfad?>" alt='bild' style='height:400px;width:400px;border:2px solid #c0cad4;border-radius:5px;'>
-            <a class="btn btn-primary mt-2" href="/Bearbeiten?id<?php echo $bilder[$i - 1]->id?>" role="button">Bearbeiten</a>
+            <a class="btn btn-primary mt-2" href="/Bilder/Edit?id=<?php echo $bilder[$i - 1]->id?>" role="button">Bearbeiten</a>
           </div>
       </div>
       <?php
