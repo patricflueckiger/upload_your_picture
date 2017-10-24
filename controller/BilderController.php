@@ -73,9 +73,8 @@ class BilderController {
 
               $newFileName = $inputTitel.date("d-m-Y");
               $newFileName = str_replace(' ','_',$newFileName);
-              $filePath = "upload/".$newFileName.".jpg";
-
-              move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath);
+              $filePath = "/"."upload/".$newFileName.".jpg";
+              move_uploaded_file($_FILES['inputBild']['tmp_name'],"upload/$newFileName".".jpg");
 
               $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit);
 
@@ -89,7 +88,7 @@ class BilderController {
         }
         else{
           // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
-          //header('Location: /Bilder');
+          header('Location: /Bilder');
         }
     }
 
@@ -112,18 +111,20 @@ class BilderController {
     }
 
     function update() {
+      $bildRepository = new BilderRepository();
       $id = $_POST['id'];
       $titel = $_POST['inputTitel'];
       $ort = $_POST['inputOrt'];
       $beschreibung = $_POST['inputBeschreib'];
       $favorit = $_POST['inputBeschreib'];
 
-      $bildRepository = new BilderRepository();
+      echo $id;
+
       $view = new View('meine_bilder');
       $view->title = 'Meine Bilder';
       $bildRepository->update($id, $titel, $ort, $beschreibung, $favorit);
       $view->bilder = $bildRepository->readAll();
-      $view->display();
+      //$view->display();
     }
 
 }

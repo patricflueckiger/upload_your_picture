@@ -2,7 +2,7 @@
   <div class="container">
     <h3 class="text-center">Bild Bearbeiten</h3>
     <div class="mx-auto" style="height:400px;width:400px;">
-      <img src="../<?php echo $bild->picture_pfad?>" alt="bild"style="height:400px;width:400px">
+      <img src="<?php echo $bild->picture_pfad?>" alt="bild"style="height:400px;width:400px">
     </div>
     <form action="/Bilder/Update" method="post">
     <input type="hidden" name="id" id="inputTitel" placeholder="Titel" class="form-control" value="<?php echo $bild->id?>" required>
