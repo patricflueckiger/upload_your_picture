@@ -36,9 +36,9 @@ class BilderController {
 
 
 
-            $newFileName = $inputTitel;
-            $filePath = "upload/".$newFileName;
-            move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath.".jpg") or die("fehler");
+            $newFileName = $inputTitel.date("d-m-Y");
+            $filePath = "upload/".$newFileName.".jpg";
+            move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath);
 
             $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath);
 

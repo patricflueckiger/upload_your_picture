@@ -11,9 +11,7 @@
   <input type="text" name="inputOrt" id="inputOrt" placeholder="Ort" class="form-control">
 </div>
 <div class="form-group">
-
   <label for="inputBeschreib">Beschreibung:</label>
-</br>
 <textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" class="form-control">
 </textarea>
 
