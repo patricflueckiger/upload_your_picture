@@ -211,7 +211,7 @@ class Repository
     }
 
     public function update($id, $titel, $ort, $beschreibung, $favorit) {
-      $querry = "UPDATE {$this->tableName} SET titel=?, ort=?, beschreibung=?, favorit=? WHERE id=?";
+      $query = "UPDATE {$this->tableName} SET titel=?, ort=?, beschreibung=?, favorit=? WHERE id=?";
 
       $statement = ConnectionHandler::getConnection()->prepare($query);
       $statement->bind_param('isssi', $id, $titel, $ort, $beschreibung, $favorit);

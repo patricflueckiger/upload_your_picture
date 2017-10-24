@@ -4,7 +4,9 @@
     <div class="mx-auto" style="height:400px;width:400px;">
       <img src="../<?php echo $bild->picture_pfad?>" alt="bild"style="height:400px;width:400px">
     </div>
-    <form action="/Bilder/doCreate" method="post" enctype="multipart/form-data">
+    <form action="/Bilder/Update" method="post">
+    <input type="hidden" name="id" id="inputTitel" placeholder="Titel" class="form-control" value="<?php echo $bild->id?>" required>
+
     <div class="form-group" style="float:left; width: 50%">
       <label for="inputTitel">Titel:</label>
       <input type="text" name="inputTitel" id="inputTitel" placeholder="Titel" class="form-control" value="<?php echo $bild->titel?>" required>

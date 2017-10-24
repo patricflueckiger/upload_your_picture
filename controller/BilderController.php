@@ -102,5 +102,20 @@ class BilderController {
 
     }
 
+    function update() {
+      $id = $_POST['id'];
+      $titel = $_POST['inputTitel'];
+      $ort = $_POST['inputOrt'];
+      $beschreibung = $_POST['inputBeschreib'];
+      $favorit = $_POST['inputBeschreib'];
+
+      $bildRepository = new BilderRepository();
+      $view = new View('meine_bilder');
+      $view->title = 'Meine Bilder';
+      $bildRepository->update($id, $titel, $ort, $beschreibung, $favorit);
+      $view->bilder = $bildRepository->readAll();
+      $view->display();
+    }
+
 }
 ?>
