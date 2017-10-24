@@ -1,3 +1,6 @@
+
+<div class="pt-5" style="background-color:#d0e4f7;height:100%;width:auto;border-radius:5px;">
+  <div class="container">
 <h1>Füge dein Bild ein</h1>
 
 <form action="/Bilder/doCreate" method="post" enctype="multipart/form-data">
@@ -21,6 +24,12 @@
   <input type="file" accept=".jpg" name="inputBild" id="inputBild" class="btn btn-primary" required>
 </div>
 
+<div class="form-check">
+  <label class="form-check-label">
+    <input name="favorit" id="favorit" class="form-check-input" type="checkbox" value="">
+    Als Favorit markieren.
+  </label>
+</div>
 
 
 <div class="form-group">
@@ -28,6 +37,8 @@
 </div>
 
 </form>
+</div>
+</div>
 
 <?php
 
