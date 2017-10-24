@@ -21,7 +21,7 @@
   <body>
     <nav class="navbar navbar-light bg-light">
       <div class="container">
-        <a class="btn btn-primary" href="#" role="button">Upload</a>
+        <a class="btn btn-primary" href="/Bilder/create" role="button">Upload</a>
         <a class="navbar-brand" href="/">Upload Your Picture</a>
         <ul class="nav">
           <li class="nav-item">
@@ -38,5 +38,3 @@
     </nav>
 
     <div class="container">
-
-    

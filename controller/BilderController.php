@@ -29,17 +29,17 @@ class BilderController {
   public function doCreate()
     {
             $bildRepository = new BilderRepository();
-            $inputTitel = $_POST['inputTitel'];
-            $inputOrt = $_POST['inputOrt'];
-            $inputBeschreib = $_POST['inputBeschreib'];
-            $inputBild = $_FILES['inputBild'];
+            $inputTitel = ($_POST['inputTitel']);
+            $inputOrt = ($_POST['inputOrt']);
+            $inputBeschreib = ($_POST['inputBeschreib']);
+            $inputBild = ($_FILES['inputBild']);
 
-            var_dump($inputBild);
+
 
             $newFileName = $inputTitel;
             $filePath = "upload/".$newFileName;
-            move_uploaded_file($_FILES['inputBild']['tmp_name'], "'$filePath'".".jpg") or die("fehler");
-            var_dump($_POST);
+            move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath.".jpg") or die("fehler");
+
             $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath);
 
 
