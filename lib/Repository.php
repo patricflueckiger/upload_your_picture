@@ -209,4 +209,15 @@ class Repository
             throw new Exception($statement->error);
         }
     }
+
+    public function update($id, $titel, $ort, $beschreibung, $favorit) {
+      $querry = "UPDATE {$this->tableName} SET titel=?, ort=?, beschreibung=?, favorit=? WHERE id=?";
+
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->bind_param('isssi', $id, $titel, $ort, $beschreibung, $favorit);
+
+      if (!$statement->execute()) {
+          throw new Exception($statement->error);
+      }
+    }
 }
