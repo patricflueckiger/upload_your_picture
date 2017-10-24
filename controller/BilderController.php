@@ -32,6 +32,7 @@ class BilderController {
             $inputTitel = htmlspecialchars($_POST['inputTitel']);
             $inputOrt = htmlspecialchars($_POST['inputOrt']);
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
+            $inputFavorit = $_POST['inputFavorit'];
             $inputBild = $_FILES['inputBild'];
 
 

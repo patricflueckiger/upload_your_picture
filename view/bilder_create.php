@@ -26,7 +26,7 @@
 
 <div class="form-check">
   <label class="form-check-label">
-    <input name="favorit" id="" class="form-check-input" type="checkbox" value="">
+    <input name="favorit" id="favorit" class="form-check-input" type="checkbox" value="">
     Als Favorit markieren.
   </label>
 </div>
