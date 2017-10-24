@@ -34,7 +34,6 @@ class BilderController {
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
             $inputBild = $_FILES['inputBild'];
 
-
             $error = false;
             $error_text = "";
 
@@ -44,10 +43,11 @@ class BilderController {
               $error_text = "Leerer Titel!<br>";
             }
 
-            else if(empty($inputBild)){
+            else if(empty($inputOrt)){
               $error = true;
-              $error_text = "Leeres Bild!<br>";
+              $error_text = "Leerer Ort!<br>";
             }
+
             else if(empty($inputBeschreib)){
               $error = true;
               $error_text = "Leerer Beschreib!<br>";
@@ -74,7 +74,7 @@ class BilderController {
 
 
         if($error){
-            echo $error_text;
+            echo $error_text."</br> Pfusch nicht im HMTL rum!";
         }
         else{
           // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
