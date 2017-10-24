@@ -29,23 +29,57 @@ class BilderController {
   public function doCreate()
     {
             $bildRepository = new BilderRepository();
-            $inputTitel = ($_POST['inputTitel']);
-            $inputOrt = ($_POST['inputOrt']);
-            $inputBeschreib = ($_POST['inputBeschreib']);
-            $inputBild = ($_FILES['inputBild']);
+            $inputTitel = htmlspecialchars($_POST['inputTitel']);
+            $inputOrt = htmlspecialchars($_POST['inputOrt']);
+            $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
+            $inputBild = $_FILES['inputBild'];
+
+
+            $error = false;
+            $error_text = "";
+
+
+            if(empty($inputTitel)){
+              $error = true;
+              $error_text = "Leerer Titel!<br>";
+            }
+
+            else if(empty($inputBild)){
+              $error = true;
+              $error_text = "Leeres Bild!<br>";
+            }
+            else if(empty($inputBeschreib)){
+              $error = true;
+              $error_text = "Leerer Beschreib!<br>";
+            }
+
+            else if(empty($inputBild)){
+              echo "füge ein Bild ein";
+              $error = true;
+              $error_text .= "Kein Bild!<br>";
+            }
+            else {
+
+              $newFileName = $inputTitel.date("d-m-Y");
+              $newFileName = str_replace(' ','_');
+              $filePath = "upload/".$newFileName.".jpg";
+
+              move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath);
+
+              $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath);
+
+
+            }
 
 
 
-            $newFileName = $inputTitel.date("d-m-Y");
-            $filePath = "upload/".$newFileName.".jpg";
-            move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath);
-
-            $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath);
-
-
-
-        // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
-        //header('Location: /Bilder');
+        if($error){
+            echo $error_text;
+        }
+        else{
+          // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
+          header('Location: /Bilder');
+        }
     }
 
 }
