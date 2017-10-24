@@ -16,3 +16,16 @@ h1{
 p{
   font-size: 18px;
 }
+
+
+.bild-container {
+  width:auto;
+  height:auto;
+}
+
+.beschreibung {
+  width: 400px;
+  height: auto;
+  border:2px solid #c0cad4;
+  border-radius:5px;
+}
