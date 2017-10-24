@@ -80,7 +80,7 @@ class BilderController {
         }
         else{
           // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
-          header('Location: /Bilder');
+          //header('Location: /Bilder');
         }
     }
 
