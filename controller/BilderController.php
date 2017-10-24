@@ -32,8 +32,17 @@ class BilderController {
             $inputTitel = htmlspecialchars($_POST['inputTitel']);
             $inputOrt = htmlspecialchars($_POST['inputOrt']);
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
-            $inputFavorit = $_POST['favorit'];
+            ;
             $inputBild = $_FILES['inputBild'];
+
+            //Checkbox wert abfangen
+            if (isset($_POST['inputOrt'])) {
+              $inputFavorit = 1;
+              echo $inputFavorit;
+            } else {
+              $inputFavorit = 0;
+              echo $inputFavorit;
+            }
 
 
             $error = false;
@@ -80,7 +89,7 @@ class BilderController {
         }
         else{
           // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
-          header('Location: /Bilder');
+          //header('Location: /Bilder');
         }
     }
 

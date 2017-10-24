@@ -32,10 +32,12 @@ class BilderRepository extends Repository
      {
 
 
-         $query = "INSERT INTO $this->tableName (titel, ort, beschreibung, picture_pfad) VALUES (?, ?, ?, ?)";
-         
+         $query = "INSERT INTO $this->tableName (titel, ort, beschreibung, picture_pfad, favorit) VALUES (?, ?, ?, ?, ?)";
+
          $statement = ConnectionHandler::getConnection()->prepare($query);
-         $statement->bind_param('ssss', $inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit);
+         if($statement === false)
+            die(ConnectionHandler::getConnection()->error);
+         $statement->bind_param('ssssi', $inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit);
 
          if (!$statement->execute()) {
              throw new Exception($statement->error);
