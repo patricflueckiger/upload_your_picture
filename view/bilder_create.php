@@ -1,23 +1,23 @@
 <h1>Füge dein Bild ein</h1>
 
 <form action="/Bilder/doCreate" method="post" enctype="multipart/form-data">
-<div class="form-group" style="float:left">
+<div class="form-group" style="float:left; width: 50%">
   <label for="inputTitel">Titel:</label>
   <input type="text" name="inputTitel" id="inputTitel" placeholder="Titel" class="form-control" required>
 </div>
 
-<div class="form-group" style="float:right">
+<div class="form-group" style="display:inline-block; width: 50%;">
   <label for="inputOrt">Ort:</label>
   <input type="text" name="inputOrt" id="inputOrt" placeholder="Ort" class="form-control" required>
 </div>
 
-<div class="form-group">
-  <label for="inputBeschreib">Beschreibung:</label>
-<textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" class="form-control" required></textarea>
+<div >
+  <label for="inputBeschreib">Beschreibung:</label></br>
+  <textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" class="form-control" required></textarea>
 </div>
 
 <div class="form-group">
-  <label for="inputBild">Bild auswählen:</label>
+  <label for="inputBild">Bild auswählen:</label></br>
   <input type="file" accept=".jpg" name="inputBild" id="inputBild" class="btn btn-primary" required>
 </div>
 
