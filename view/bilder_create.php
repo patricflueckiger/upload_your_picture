@@ -23,10 +23,9 @@
   <label for="inputBild">Bild auswählen:</label></br>
   <input type="file" accept=".jpg" name="inputBild" id="inputBild" class="btn btn-primary" required>
 </div>
-
 <div class="form-check">
   <label class="form-check-label">
-    <input name="favorit" id="favorit" class="form-check-input" type="checkbox" value="">
+    <input name="favorit" id="" class="form-check-input" type="checkbox" value="">
     Als Favorit markieren.
   </label>
 </div>

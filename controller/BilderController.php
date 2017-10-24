@@ -32,7 +32,6 @@ class BilderController {
             $inputTitel = htmlspecialchars($_POST['inputTitel']);
             $inputOrt = htmlspecialchars($_POST['inputOrt']);
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
-            $inputFavorit = $_POST['favorit'];
             $inputBild = $_FILES['inputBild'];
 
 
@@ -63,7 +62,7 @@ class BilderController {
             else {
 
               $newFileName = $inputTitel.date("d-m-Y");
-              $newFileName = str_replace(' ', '_', $newFileName);
+              $newFileName = str_replace(' ','_',$newFileName);
               $filePath = "upload/".$newFileName.".jpg";
 
               move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath);
