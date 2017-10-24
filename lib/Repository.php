@@ -153,7 +153,7 @@ class Repository
     }
     public function maxId()
     {
-        $query = "SELECT max(id) FROM {$this->tableName}"; 
+        $query = "SELECT max(id) FROM {$this->tableName}";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->execute();

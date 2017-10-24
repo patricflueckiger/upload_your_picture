@@ -87,7 +87,7 @@ class BilderController {
       $id = $_GET['id'];
       $view = new View('bearbeiten');
       $view->title = 'Bild bearbeiten';
-      $bildRepository->readById($id);
+      $view->bild = $bildRepository->readById($id);
       $view->display();
     }
 
