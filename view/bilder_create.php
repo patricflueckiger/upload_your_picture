@@ -10,10 +10,10 @@
   <label for="inputOrt">Ort:</label>
   <input type="text" name="inputOrt" id="inputOrt" placeholder="Ort" class="form-control" required>
 </div>
+
 <div class="form-group">
   <label for="inputBeschreib">Beschreibung:</label>
-<textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" class="form-control" required>
-</textarea>
+<textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" class="form-control" required></textarea>
 </div>
 
 <div class="form-group">
