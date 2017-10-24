@@ -61,7 +61,7 @@ class BilderController {
             else {
 
               $newFileName = $inputTitel.date("d-m-Y");
-              $newFileName = str_replace(' ','_');
+              $newFileName = str_replace(' ','_',$newFileName);
               $filePath = "upload/".$newFileName.".jpg";
 
               move_uploaded_file($_FILES['inputBild']['tmp_name'], $filePath);
@@ -89,6 +89,15 @@ class BilderController {
       $view->title = 'Bild bearbeiten';
       $view->bild = $bildRepository->readById($id);
       $view->display();
+    }
+
+    function favoriten(){
+      $bildRepository = new BilderRepository();
+      $view = new View('meine_favoriten');
+      $view->title = 'Favoriten';
+      $bildRepository->readAllFavorit();
+      $view->display();
+
     }
 
 }

@@ -151,6 +151,25 @@ class Repository
 
         return $rows;
     }
+    public function readAllFavorit(){
+      $query = "SELECT * FROM {$this->tableName} where favorit != 0";
+
+      $statement = ConnectionHandler::getConnection()->prepare($query);
+      $statement->execute();
+
+      $result = $statement->get_result();
+      if (!$result) {
+          throw new Exception($statement->error);
+      }
+
+      // Datensätze aus dem Resultat holen und in das Array $rows speichern
+      $rows = array();
+      while ($row = $result->fetch_object()) {
+          $rows[] = $row;
+      }
+
+      return $rows;
+    }
     public function maxId()
     {
         $query = "SELECT max(id) FROM {$this->tableName}";
