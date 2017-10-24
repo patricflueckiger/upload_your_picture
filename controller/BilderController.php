@@ -32,6 +32,7 @@ class BilderController {
             $inputTitel = htmlspecialchars($_POST['inputTitel']);
             $inputOrt = htmlspecialchars($_POST['inputOrt']);
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
+            $inputFavorit = htmlspecialchars($_POST['inputFavorit'])
             $inputBild = $_FILES['inputBild'];
 
 
@@ -79,7 +80,7 @@ class BilderController {
         }
         else{
           // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
-          header('Location: /Bilder');
+          //header('Location: /Bilder');
         }
     }
 
