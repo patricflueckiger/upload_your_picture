@@ -4,6 +4,18 @@
       <h3 class="text-center">Meine Bilder</h3>
       <div class="row" style="padding-left:100px;">
       <?php
+        if (empty($bilder)) {
+      ?>
+      <div class="col-lg-12 p-5" style="padding-left:320px;"></div>
+      <div class="col-lg-12" style="padding-left:320px;">
+        <h3>Es gibt noch keine Bilder</h3>
+        <h3>Lade ein Bild Hoch</h3>
+        <div class="text-center mt-5" style="width:100px;margin-left:105px;">
+          <a class="btn btn-primary pagination-centered btn-lg mb-3" href="/Bilder/create" role="button">Upload</a>
+        </div>
+      </div>
+      <?php
+      } else {
         for ($i=count($bilder); $i > 0; $i--) {
       ?>
       <div class='col-sm-6 mb-5 mt-5'>
@@ -20,6 +32,7 @@
           </div>
       </div>
       <?php
+        }
       }
     ?>
     </div>

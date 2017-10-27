@@ -22,7 +22,7 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container">
         <a class="btn btn-primary" href="/Bilder/create" role="button">Upload</a>
-        <a class="navbar-brand" href="/Homecontent">Upload Your Picture</a>
+        <a class="navbar-brand" href="/Homecontent" style="color:rgb(53, 117, 181);">Upload Your Picture</a>
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link active" href="/Homecontent">Home</a>

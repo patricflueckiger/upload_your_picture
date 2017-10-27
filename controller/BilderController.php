@@ -104,7 +104,7 @@ class BilderController {
       $bildRepository = new BilderRepository();
       $view = new View('meine_favoriten');
       $view->title = 'Favoriten';
-      $bildRepository->readAllFavorit();
+      $view->bilder = $bildRepository->readAllFavorit();
       $view->display();
 
     }
