@@ -27,11 +27,11 @@
         <?php
           if ($bild->favorit == 1) {
         ?>
-          <input class="form-check-input" name="favorit" type="checkbox" value="" checked>
+          <input class="form-check-input" name="inputFavorit" type="checkbox" value="" checked>
         <?php
         } else {
         ?>
-        <input class="form-check-input" name="favorit" type="checkbox" value="">
+        <input class="form-check-input" name="inputFavorit" type="checkbox" value="">
 
       <?php
       }
@@ -42,6 +42,7 @@
 
     <div class="form-group mt-2">
       <input type="submit" name="inputButton" id="inputButton" value="Bestätigen" class="btn btn-primary" required>
+    <a class="btn btn-danger" href="/Bilder/Delete?id=<?php echo $bild->id?>" role="button">Löschen</a>
     </div>
 
     </form>

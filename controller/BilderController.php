@@ -32,11 +32,10 @@ class BilderController {
             $inputTitel = htmlspecialchars($_POST['inputTitel']);
             $inputOrt = htmlspecialchars($_POST['inputOrt']);
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
-            ;
             $inputBild = $_FILES['inputBild'];
 
             //Checkbox wert abfangen
-            if (isset($_POST['inputOrt'])) {
+            if (isset($_POST['inputFavorit'])) {
               $inputFavorit = 1;
               echo $inputFavorit;
             } else {
@@ -92,7 +91,7 @@ class BilderController {
         }
     }
 
-    function edit() {
+    public function edit() {
       $bildRepository = new BilderRepository();
       $id = $_GET['id'];
       $view = new View('bearbeiten');
@@ -101,7 +100,7 @@ class BilderController {
       $view->display();
     }
 
-    function favoriten(){
+    public function favoriten(){
       $bildRepository = new BilderRepository();
       $view = new View('meine_favoriten');
       $view->title = 'Favoriten';
@@ -110,21 +109,39 @@ class BilderController {
 
     }
 
-    function update() {
+    public function update() {
       $bildRepository = new BilderRepository();
       $id = $_POST['id'];
       $titel = $_POST['inputTitel'];
       $ort = $_POST['inputOrt'];
       $beschreibung = $_POST['inputBeschreib'];
-      $favorit = $_POST['inputBeschreib'];
 
-      echo $id;
+      //Checkbox wert abfangen
+      if (isset($_POST['inputFavorit'])) {
+        $inputFavorit = 1;
+        echo $inputFavorit;
+      } else {
+        $inputFavorit = 0;
+        echo $inputFavorit;
+      }
 
-      $view = new View('meine_bilder');
-      $view->title = 'Meine Bilder';
-      $bildRepository->update($id, $titel, $ort, $beschreibung, $favorit);
-      $view->bilder = $bildRepository->readAll();
+      //$view = new View('meine_bilder');
+      //$view->title = 'Meine Bilder';
+      $bildRepository->update($id, $titel, $ort, $beschreibung, $inputFavorit);
+      //$view->bilder = $bildRepository->readAll();
       //$view->display();
+
+      // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
+      header('Location: /Bilder');
+    }
+
+    public function delete() {
+      $bildRepository = new BilderRepository();
+
+      $id = $_GET['id'];
+      $bildRepository->deleteById($id);
+      // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
+      header('Location: /Bilder');
     }
 
 }

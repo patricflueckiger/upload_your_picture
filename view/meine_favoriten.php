@@ -1,8 +1,8 @@
 <div class="pt-5" style="background-color:#d0e4f7;height:100%;width:auto;border-radius:5px;">
 
     <div class="cotainer">
-      <h3 class="text-center">Meine Bilder</h3>
-      <div class="row" style="padding-left:150px;">
+      <h3 class="text-center">Meine Favoriten</h3>
+      <div class="row" style="padding-left:100px;">
       <?php
       $bildRepository = new BilderRepository();
       $bilder = $bildRepository->readAllFavorit();
@@ -18,6 +18,8 @@
             <div class="beschreibung mb-2">
               <p class="m-0"><u>Beschreibung:</u></p>
               <p><?php echo $bilder[$i -1]->beschreibung?></p>
+              <p class="m-0"><u>Ort:</u></p>
+              <p><?php echo $bilder[$i -1]->ort?></p>
             </div>
             <img src="<?php echo "../".$bilder[$i - 1]->picture_pfad?>" alt='bild' style='height:400px;width:400px;border:2px solid #c0cad4;border-radius:5px;'>
             <a class="btn btn-primary mt-2" href="/Bilder/Edit?id=<?php echo $bilder[$i - 1]->id?>" role="button">Bearbeiten</a>
