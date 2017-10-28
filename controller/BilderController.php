@@ -77,7 +77,6 @@ class BilderController {
 
               $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit);
 
-
             }
 
 
@@ -111,10 +110,10 @@ class BilderController {
 
     public function update() {
       $bildRepository = new BilderRepository();
-      $id = $_POST['id'];
-      $titel = $_POST['inputTitel'];
-      $ort = $_POST['inputOrt'];
-      $beschreibung = $_POST['inputBeschreib'];
+      $id = htmlspecialchars($_POST['id']);
+      $titel = htmlspecialchars($_POST['inputTitel']);
+      $ort = htmlspecialchars($_POST['inputOrt']);
+      $beschreibung = htmlspecialchars($_POST['inputBeschreib']);
 
       //Checkbox wert abfangen
       if (isset($_POST['inputFavorit'])) {
