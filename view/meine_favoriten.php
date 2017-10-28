@@ -26,8 +26,11 @@
                 <p><?php echo $bilder[$i -1]->beschreibung?></p>
                 <p class="m-0"><u>Ort:</u></p>
                 <p><?php echo $bilder[$i -1]->ort?></p>
+
               </div>
               <img src="<?php echo $bilder[$i - 1]->picture_pfad?>" alt='bild' style='height:400px;width:400px;border:2px solid #c0cad4;border-radius:5px;'>
+              <p class="m-0"><u>Datum:</u></p>
+              <p><?php echo $bilder[$i -1]->datum?></p>
               <a class="btn btn-primary mt-2" href="/Bilder/Edit?id=<?php echo $bilder[$i - 1]->id?>" role="button">Bearbeiten</a>
             </div>
         </div>

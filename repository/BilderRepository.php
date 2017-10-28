@@ -31,13 +31,13 @@ class BilderRepository extends Repository
      public function create($inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit)
      {
 
-
-         $query = "INSERT INTO $this->tableName (titel, ort, beschreibung, picture_pfad, favorit) VALUES (?, ?, ?, ?, ?)";
+         $date = date("Y-m-d");
+         $query = "INSERT INTO $this->tableName (titel, ort, beschreibung, picture_pfad, favorit, datum) VALUES (?, ?, ?, ?, ?, ?)";
 
          $statement = ConnectionHandler::getConnection()->prepare($query);
          if($statement === false)
             die(ConnectionHandler::getConnection()->error);
-         $statement->bind_param('ssssi', $inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit);
+         $statement->bind_param('ssssis', $inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit, $date);
 
          if (!$statement->execute()) {
              throw new Exception($statement->error);
