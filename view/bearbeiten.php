@@ -1,17 +1,5 @@
 <div class="pt-5" style="background-color:#d0e4f7;height:100%;width:auto;border-radius:5px;">
   <div class="container">
-    <?php
-    if(isset($_GET['error'])){
-    ?>
-    <h4 id="fehler-meldung" style="color:red;"><?php
-    switch ($_GET['error']) {
-      default:
-        echo "Alle Felder müssen ausgefüllt sein!";
-        break;
-    }  ?></h4>
-    <?php
-    }
-    ?>
     <h3 class="text-center">Bild Bearbeiten</h3>
     <div class="mx-auto" style="height:400px;width:400px;">
       <img src="<?php echo $bild->picture_pfad?>" alt="bild" style="height:400px;width:400px">
