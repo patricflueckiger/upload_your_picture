@@ -33,7 +33,7 @@ class BilderController {
             $inputOrt = htmlspecialchars($_POST['inputOrt']);
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
             $inputBild = $_FILES['inputBild'];
-            $allowed =  array('jpg','png');
+            $allowed =  array('jpg','png','jpeg');
             $fileType = split('/',$_FILES['inputBild']['type']);
             $filename = $_FILES['inputBild']['name'];
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -55,27 +55,26 @@ class BilderController {
 
             if(empty($inputTitel)){
               $error = true;
-              $error_text = "Leerer Titel!<br>";
+              $error_text = "titel";
             }
 
             else if(empty($inputOrt)){
               $error = true;
-              $error_text = "Leerer Ort!<br>";
+              $error_text = "ort";
             }
 
             else if(empty($inputBeschreib)){
               $error = true;
-              $error_text = "Leerer Beschreib!<br>";
+              $error_text = "beschrieb";
             }
 
             else if(empty($inputBild)){
-              echo "füge ein Bild ein";
               $error = true;
-              $error_text .= "Kein Bild!<br>";
+              $error_text = "bild";
             }
             else if(!in_array($ext,$allowed)) {
-                $error = true;
-                echo 'falsch dateityp.';
+              $error = true;
+              $error_text = "dateityp";
             }
             else {
               //Files hochladen und in Ordner Upload verschieben.
@@ -90,14 +89,14 @@ class BilderController {
 
 
 
-        if($error){
-
-            echo $error_text."</br> Pfusch nicht im HMTL rum!";
-        }
-        else{
+            if(!$error){
           // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
           header('Location: /Bilder');
+          }
+          else{
+          header('Location: /Bilder/create?error='.$error_text);
         }
+
     }
 
     public function edit() {
