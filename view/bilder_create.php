@@ -2,10 +2,11 @@
 <div class="pt-5" style="background-color:#d0e4f7;height:100%;width:auto;border-radius:5px;">
   <div class="container">
     <div class="container">
+      <h4 id="fehler-meldung" style="color:red;">
       <?php
       if(isset($_GET['error'])){
       ?>
-      <h4 id="fehler-meldung" style="color:red;"><?php
+      <?php
       switch ($_GET['error']) {
         case 'dateityp':
           echo "Benutzen Sie einen zulässigen Dateityp! (png, jpg, jpeg)";
@@ -22,22 +23,22 @@
       <form action="/Bilder/doCreate" method="post" enctype="multipart/form-data">
       <div class="form-group" style="float:left; width: 50%">
         <label for="inputTitel">Titel:</label>
-        <input type="text" name="inputTitel" id="inputTitel" placeholder="Titel" class="form-control" required>
+        <input type="text" name="inputTitel" id="inputTitel" placeholder="Titel" class="form-control input" required>
       </div>
 
       <div class="form-group" style="display:inline-block; width: 50%;">
         <label for="inputOrt">Ort:</label>
-        <input type="text" name="inputOrt" id="inputOrt" placeholder="Ort" class="form-control" required>
+        <input type="text" name="inputOrt" id="inputOrt" placeholder="Ort" class="form-control input" required>
       </div>
 
       <div >
         <label for="inputBeschreib">Beschreibung:</label><br>
-        <textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" placeholder="Beischreibe kurz dein Bild" class="form-control" required></textarea>
+        <textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" placeholder="Beischreibe kurz dein Bild" class="form-control input" required></textarea>
       </div>
 
       <div class="form-group">
         <label for="inputBild">Bild auswählen:</label><br>
-        <input type="file" accept="image/*" name="inputBild" id="inputBild" class="btn btn-primary file-input" required>
+        <input type="file" accept="image/*" name="inputBild" id="inputBild" class="btn btn-primary file-input input" required>
       </div>
 
       <div class="form-check">
@@ -48,7 +49,7 @@
       </div>
 
       <div class="form-group">
-        <input type="submit" name="inputButton" id="inputButton" value="Speichern" class="btn btn-primary">
+        <input type="submit" name="inputButton" onclick="validateInput()" id="inputButton" value="Speichern" class="btn btn-primary">
       </div>
       </form>
     </div>
