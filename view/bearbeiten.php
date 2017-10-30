@@ -5,7 +5,7 @@
       <img src="<?php echo $bild->picture_pfad?>" alt="bild" style="height:400px;width:400px">
     </div>
     <form action="/Bilder/Update" method="post">
-    <input type="hidden" name="id" id="inputTitel" class="form-control" value="<?php echo $bild->id?>">
+    <input type="hidden" name="id" id="id" class="form-control" value="<?php echo $bild->id?>">
 
     <div class="form-group" style="float:left; width: 50%">
       <label for="inputTitel">Titel:</label>
