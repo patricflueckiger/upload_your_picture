@@ -15,12 +15,12 @@
       </div>
 
       <div >
-        <label for="inputBeschreib">Beschreibung:</label></br>
+        <label for="inputBeschreib">Beschreibung:</label><br>
         <textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" placeholder="Beischreibe kurz dein Bild" class="form-control" required></textarea>
       </div>
 
       <div class="form-group">
-        <label for="inputBild">Bild auswählen:</label></br>
+        <label for="inputBild">Bild auswählen:</label><br>
         <input type="file" accept="image/*" name="inputBild" id="inputBild" class="btn btn-primary file-input" required>
       </div>
 
@@ -32,7 +32,7 @@
       </div>
 
       <div class="form-group">
-        <input type="submit" name="inputButton" id="inputButton" value="Speichern" class="btn btn-primary" required>
+        <input type="submit" name="inputButton" id="inputButton" value="Speichern" class="btn btn-primary">
       </div>
       </form>
     </div>

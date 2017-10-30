@@ -2,10 +2,10 @@
   <div class="container">
     <h3 class="text-center">Bild Bearbeiten</h3>
     <div class="mx-auto" style="height:400px;width:400px;">
-      <img src="<?php echo $bild->picture_pfad?>" alt="bild"style="height:400px;width:400px">
+      <img src="<?php echo $bild->picture_pfad?>" alt="bild" style="height:400px;width:400px">
     </div>
     <form action="/Bilder/Update" method="post">
-    <input type="hidden" name="id" id="inputTitel" placeholder="Titel" class="form-control" value="<?php echo $bild->id?>" required>
+    <input type="hidden" name="id" id="inputTitel" class="form-control" value="<?php echo $bild->id?>">
 
     <div class="form-group" style="float:left; width: 50%">
       <label for="inputTitel">Titel:</label>
@@ -18,7 +18,7 @@
     </div>
 
     <div >
-      <label for="inputBeschreib">Beschreibung:</label></br>
+      <label for="inputBeschreib">Beschreibung:</label><br>
       <textarea rows="5" cols="40" name="inputBeschreib"   id="inputBeschreib" class="form-control" required><?php echo $bild->beschreibung?></textarea>
     </div>
 
@@ -45,7 +45,7 @@
         <div class="col-lg-6">
           <!-- $_SERVER['HTTP_REFERER']; für den letzt aufgerufe URL zu getten -->
           <a class="btn btn-secondary" href="<?php echo $_SERVER['HTTP_REFERER']; ?>" role="button">Zurück</a>
-          <input type="submit" name="inputButton" id="inputButton" value="Speichern" class="btn btn-primary" required>
+          <input type="submit" name="inputButton" id="inputButton" value="Speichern" class="btn btn-primary">
         </div>
         <div class="col-lg-6">
           <div class="text-right">
