@@ -1,13 +1,13 @@
-# Upload Your Picure
+# Upload Your Picture
 
-Willkome bei Upload Your Picture.
+Willkomem bei Upload Your Picture.
 Eine simple Webseite auf welcher man Bilder uploaden kann.
 
 # Get Started
 
-Dowloaade oder clone das Repository und erstelle im Verzeichnis Public einen Ordner mit dem Namen upload.
-Dort werden später die Bilder abgespeichert.
-Im Verzeichnis 'Data' findet man ein SQL-Schema für die Tabelle 'bild' zu esstellen und passe je nach SQL-Server das 'Config.php' an.
+Dowloaade oder clone das Repository und erstelle im Verzeichnis Public einen Ordner mit dem Namen 'upload'.
+Dort werden dann später die Bilder abgespeichert.
+Im Verzeichnis 'Data' findet man ein SQL-Schema, um die Tabelle 'bild' zu erstellen und passe je nach SQL-Server das 'Config.php' an.
 
 
 
