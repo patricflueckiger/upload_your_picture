@@ -123,6 +123,8 @@ class BilderController {
       $titel = htmlspecialchars($_POST['inputTitel']);
       $ort = htmlspecialchars($_POST['inputOrt']);
       $beschreibung = htmlspecialchars($_POST['inputBeschreib']);
+      $error = false;
+      $error_text = "";
 
       //Checkbox wert abfangen
       if (isset($_POST['inputFavorit'])) {
@@ -133,14 +135,32 @@ class BilderController {
         echo $inputFavorit;
       }
 
-      //$view = new View('meine_bilder');
-      //$view->title = 'Meine Bilder';
-      $bildRepository->update($id, $titel, $ort, $beschreibung, $inputFavorit);
-      //$view->bilder = $bildRepository->readAll();
-      //$view->display();
+      if(empty($titel)){
+        $error = true;
+        $error_text = "titel";
+      }
+
+      else if(empty($ort)){
+        $error = true;
+        $error_text = "ort";
+      }
+
+      else if(empty($beschreibung)){
+        $error = true;
+        $error_text = "beschrieb";
+      }
+      else{
+        $bildRepository->update($id, $titel, $ort, $beschreibung, $inputFavorit);
+      }
 
       // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
-      header('Location: /Bilder');
+      if(!$error){
+        header('Location: /Bilder');
+      }
+      else{
+        header('Location: /Bilder/edit?id='.$id.'&error='.$error_text);
+      }
+
     }
 
     public function delete() {
