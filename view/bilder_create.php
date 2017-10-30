@@ -2,6 +2,22 @@
 <div class="pt-5" style="background-color:#d0e4f7;height:100%;width:auto;border-radius:5px;">
   <div class="container">
     <div class="container">
+      <?php
+      if(isset($_GET['error'])){
+      ?>
+      <h4 id="fehler-meldung" style="color:red;"><?php
+      switch ($_GET['error']) {
+        case 'dateityp':
+          echo "Benutzen Sie einen zulässigen Dateityp! (png, jpg, jpeg)";
+          break;
+
+        default:
+          echo "Alle Felder müssen ausgefüllt sein!";
+          break;
+      }  ?></h4>
+      <?php
+      }
+      ?>
       <h1>Lade dein Bild Hoch</h1>
       <form action="/Bilder/doCreate" method="post" enctype="multipart/form-data">
       <div class="form-group" style="float:left; width: 50%">
