@@ -38,7 +38,7 @@ class BilderController {
             $filename = $_FILES['inputBild']['name'];
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-          
+
             //Checkbox wert abfangen
             if (isset($_POST['inputFavorit'])) {
               $inputFavorit = 1;
@@ -148,7 +148,19 @@ class BilderController {
       $bildRepository = new BilderRepository();
 
       $id = $_GET['id'];
+      $path = trim($_GET['path'], '/');
+
       $bildRepository->deleteById($id);
+
+      //Bild wird auch im verzeichnis gelöscht
+      chown($path, 666); //Owner wird auf einen Invaliden user gesetzt, um kein user als owner zu haben
+
+      if (unlink($path)) {
+          echo 'success: file was deleted';
+      } else {
+          echo 'fail: could not delete file';
+      }
+
       // Anfrage an die URI /Bilder weiterleiten (HTTP 302)
       header('Location: /Bilder');
     }

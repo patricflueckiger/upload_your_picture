@@ -49,7 +49,7 @@
         </div>
         <div class="col-lg-6">
           <div class="text-right">
-            <a class="btn btn-danger" href="/Bilder/Delete?id=<?php echo $bild->id?>" role="button">Löschen</a>
+            <a class="btn btn-danger" href="/Bilder/Delete?id=<?php echo $bild->id?>&path=<?php echo $bild->picture_pfad?>" role="button">Löschen</a>
           </div>
         </div>
       </div>
