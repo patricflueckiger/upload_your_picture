@@ -151,6 +151,7 @@ class Repository
 
         return $rows;
     }
+    //Alle Bilder auslesen, welche als Favorit markiert sind
     public function readAllFavorit(){
       $query = "SELECT * FROM {$this->tableName} where favorit != 0";
 
@@ -210,19 +211,6 @@ class Repository
         }
     }
 
-    public function update($id, $titel, $ort, $beschreibung, $favorit) {
-      $query = "UPDATE {$this->tableName} SET titel=?, ort=?, beschreibung=?, favorit=? WHERE id=?";
 
-$statement = ConnectionHandler::getConnection()->prepare($query);
-      if ($statement == false) {
-        die(ConnectionHandler::getConnection()->error);
-      }
-      $statement->bind_param('sssii', $titel, $ort, $beschreibung, $favorit, $id);
-
-      if (!$statement->execute()) {
-          throw new Exception($statement->error);
-      }
-      return $statement->insert_id;
-    }
 
 }

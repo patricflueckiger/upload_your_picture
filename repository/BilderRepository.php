@@ -28,21 +28,40 @@ class BilderRepository extends Repository
      *
      * @throws Exception falls das Ausführen des Statements fehlschlägt
      */
+     //Create Methode
      public function create($inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit)
      {
-
+         //Speichere Datum in eine Variable und erstelle den Insert Befehl
          $date = date("Y-m-d");
          $query = "INSERT INTO $this->tableName (titel, ort, beschreibung, picture_pfad, favorit, datum) VALUES (?, ?, ?, ?, ?, ?)";
-
+         //prepare stament gegen SQL-Injection
          $statement = ConnectionHandler::getConnection()->prepare($query);
          if($statement === false)
             die(ConnectionHandler::getConnection()->error);
          $statement->bind_param('ssssis', $inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit, $date);
-
+         //exception abfangen
          if (!$statement->execute()) {
              throw new Exception($statement->error);
          }
 
          return $statement->insert_id;
+     }
+
+     //Update Methode
+     public function update($id, $titel, $ort, $beschreibung, $favorit) {
+       //query vorbereiten
+       $query = "UPDATE {$this->tableName} SET titel=?, ort=?, beschreibung=?, favorit=? WHERE id=?";
+       $statement = ConnectionHandler::getConnection()->prepare($query);
+       if ($statement == false) {
+         die(ConnectionHandler::getConnection()->error);
+       }
+       //Werte ins statement einlesen
+       $statement->bind_param('sssii', $titel, $ort, $beschreibung, $favorit, $id);
+
+       if (!$statement->execute()) {
+           throw new Exception($statement->error);
+       }
+       //fertiges stament zurückgeben
+       return $statement->insert_id;
      }
 }
