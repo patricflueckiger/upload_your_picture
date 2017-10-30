@@ -13,6 +13,9 @@
         case 'dateityp':
           echo "Benutzen Sie einen zulässigen Dateityp! (png, jpg, jpeg)";
           break;
+        case 'xss':
+          echo "Du kannst als Titel keine HTML Tags benutzen!";
+          break;
       //Falls der Error nicht speziell behandelt werden muss den Default ausgeben
         default:
           echo "Alle Felder müssen ausgefüllt sein!";

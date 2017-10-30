@@ -57,6 +57,10 @@ class BilderController {
               $error = true;
               $error_text = "titel";
             }
+            else if(preg_match('/[^A-Za-z0-9.#\\-$]/', $inputTitel)){
+              $error = true;
+              $error_text = "xss";
+            }
 
             else if(empty($inputOrt)){
               $error = true;
@@ -82,7 +86,6 @@ class BilderController {
               $newFileName = str_replace(' ','_',$newFileName);
               $filePath = "/"."upload/".$newFileName.".".$fileType[1];
               move_uploaded_file($_FILES['inputBild']['tmp_name'],"upload/$newFileName".".".$fileType[1]);
-
               $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit);
 
             }
