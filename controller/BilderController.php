@@ -33,7 +33,12 @@ class BilderController {
             $inputOrt = htmlspecialchars($_POST['inputOrt']);
             $inputBeschreib = htmlspecialchars($_POST['inputBeschreib']);
             $inputBild = $_FILES['inputBild'];
+            $allowed =  array('jpg','png');
+            $fileType = split('/',$_FILES['inputBild']['type']);
+            $filename = $_FILES['inputBild']['name'];
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
+          
             //Checkbox wert abfangen
             if (isset($_POST['inputFavorit'])) {
               $inputFavorit = 1;
@@ -68,12 +73,16 @@ class BilderController {
               $error = true;
               $error_text .= "Kein Bild!<br>";
             }
+            else if(!in_array($ext,$allowed)) {
+                $error = true;
+                echo 'falsch dateityp.';
+            }
             else {
-
+              //Files hochladen und in Ordner Upload verschieben.
               $newFileName = $inputTitel.date("d-m-Y");
               $newFileName = str_replace(' ','_',$newFileName);
-              $filePath = "/"."upload/".$newFileName.".jpg";
-              move_uploaded_file($_FILES['inputBild']['tmp_name'],"upload/$newFileName".".jpg");
+              $filePath = "/"."upload/".$newFileName.".".$fileType[1];
+              move_uploaded_file($_FILES['inputBild']['tmp_name'],"upload/$newFileName".".".$fileType[1]);
 
               $bildRepository->create($inputTitel, $inputOrt, $inputBeschreib, $filePath, $inputFavorit);
 
@@ -82,6 +91,7 @@ class BilderController {
 
 
         if($error){
+
             echo $error_text."</br> Pfusch nicht im HMTL rum!";
         }
         else{
