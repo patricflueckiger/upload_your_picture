@@ -16,6 +16,7 @@
         </div>
         <?php
         } else {
+          //Schlaufe durchläuft so oft, wie es bilder in der db hat
           for ($i=count($bilder); $i > 0; $i--) {
         ?>
         <div class='col-sm-6 mb-5 mt-5'>

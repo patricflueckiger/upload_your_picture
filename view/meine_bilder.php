@@ -18,6 +18,7 @@
       <?php
     }// Wenn Bilder vorhanden sind diese anzeigen
       else {
+        //Schlaufe durchläuft so oft, wie es bilder in der db hat
         for ($i=count($bilder); $i > 0; $i--) {
       ?>
         <!--Daten in das Formular laden -->
