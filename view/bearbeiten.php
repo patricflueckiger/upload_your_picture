@@ -41,10 +41,19 @@
     </div>
 
     <div class="form-group mt-2">
-      <input type="submit" name="inputButton" id="inputButton" value="Bestätigen" class="btn btn-primary" required>
-    <a class="btn btn-danger" href="/Bilder/Delete?id=<?php echo $bild->id?>" role="button">Löschen</a>
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- $_SERVER['HTTP_REFERER']; für den letzt aufgerufe URL zu getten -->
+          <a class="btn btn-secondary" href="<?php echo $_SERVER['HTTP_REFERER']; ?>" role="button">Zurück</a>
+          <input type="submit" name="inputButton" id="inputButton" value="Speichern" class="btn btn-primary" required>
+        </div>
+        <div class="col-lg-6">
+          <div class="text-right">
+            <a class="btn btn-danger" href="/Bilder/Delete?id=<?php echo $bild->id?>" role="button">Löschen</a>
+          </div>
+        </div>
+      </div>
     </div>
-
     </form>
   </div>
 </div>
