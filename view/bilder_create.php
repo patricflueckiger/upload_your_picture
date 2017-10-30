@@ -4,14 +4,16 @@
     <div class="container">
       <h4 id="fehler-meldung" style="color:red;">
       <?php
+      //GET Request überprüfen, ob ein Error vorhanden ist
       if(isset($_GET['error'])){
       ?>
       <?php
+      //Überprüfen, welcher Error anliegt
       switch ($_GET['error']) {
         case 'dateityp':
           echo "Benutzen Sie einen zulässigen Dateityp! (png, jpg, jpeg)";
           break;
-
+      //Falls der Error nicht speziell behandelt werden muss den Default ausgeben
         default:
           echo "Alle Felder müssen ausgefüllt sein!";
           break;

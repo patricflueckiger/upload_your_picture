@@ -2,9 +2,12 @@
   <div class="container">
     <h4 id="fehler-meldung" style="color:red;">
     <?php
+    //GET Request überprüfen, ob ein Error vorhanden ist
     if(isset($_GET['error'])){
     ?>
     <?php
+    //Überprüfen, welcher Error anliegt
+    //Falls der Error nicht speziell behandelt werden muss den Default ausgeben
     switch ($_GET['error']) {
       default:
         echo "Alle Felder müssen ausgefüllt sein!";
@@ -38,6 +41,7 @@
     <div class="form-check mt-2">
       <label class="form-check-label">
         <?php
+        //Wert für Checkbox herausfinden und setzen
           if ($bild->favorit == 1) {
         ?>
           <input class="form-check-input" name="inputFavorit" type="checkbox" value="" checked>
