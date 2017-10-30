@@ -10,7 +10,7 @@
         break;
     }  ?></h4>
     <?php
-    }
+  }
     ?>
     <h3 class="text-center">Bild Bearbeiten</h3>
     <div class="mx-auto" style="height:400px;width:400px;">
