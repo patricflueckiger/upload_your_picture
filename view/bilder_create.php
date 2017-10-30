@@ -21,7 +21,7 @@
 
       <div class="form-group">
         <label for="inputBild">Bild auswählen:</label></br>
-        <input type="file" accept=".jpg" name="inputBild" id="inputBild" class="btn btn-primary file-input" required>
+        <input type="file" accept="image/*" name="inputBild" id="inputBild" class="btn btn-primary file-input" required>
       </div>
 
       <div class="form-check">
