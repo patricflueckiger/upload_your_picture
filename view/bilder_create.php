@@ -20,10 +20,10 @@
         default:
           echo "Alle Felder müssen ausgefüllt sein!";
           break;
-      }  ?></h4>
+      }  ?>
       <?php
       }
-      ?>
+      ?></h4>
       <h1>Lade dein Bild Hoch</h1>
       <form action="/Bilder/doCreate" method="post" enctype="multipart/form-data">
       <div class="form-group" style="float:left; width: 50%">

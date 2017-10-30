@@ -12,10 +12,10 @@
       default:
         echo "Alle Felder müssen ausgefüllt sein!";
         break;
-    }  ?></h4>
+    }  ?>
     <?php
   }
-    ?>
+    ?></h4>
     <h3 class="text-center">Bild Bearbeiten</h3>
     <div class="mx-auto" style="height:400px;width:400px;">
       <img src="<?php echo $bild->picture_pfad?>" alt="bild" style="height:400px;width:400px">
