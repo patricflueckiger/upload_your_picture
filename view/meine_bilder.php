@@ -4,6 +4,7 @@
       <h3 class="text-center">Meine Bilder</h3>
       <div class="row" style="padding-left:100px;">
       <?php
+      //überprüfen ob schon Bilder zum anzeigen verügbar sind
         if (empty($bilder)) {
       ?>
       <div class="col-lg-12 p-5" style="padding-left:320px;"></div>
@@ -15,9 +16,11 @@
         </div>
       </div>
       <?php
-      } else {
+    }// Wenn Bilder vorhanden sind diese anzeigen
+      else {
         for ($i=count($bilder); $i > 0; $i--) {
       ?>
+        <!--Daten in das Formular laden -->
       <div class='col-sm-6 mb-5 mt-5'>
           <div class='bild-container'>
             <h3><?php echo $bilder[$i - 1]->titel?></h3>
@@ -27,7 +30,7 @@
               <p class="m-0"><u>Ort:</u></p>
               <p><?php echo $bilder[$i -1]->ort?></p>
 
-            </div>
+            </div> <!-- Bild reinladen-->
             <img src="<?php echo $bilder[$i - 1]->picture_pfad?>" alt='bild' style='height:400px;width:400px;border:2px solid #c0cad4;border-radius:5px;'>
             <p class="m-0"><u>Datum:</u></p>
             <p><?php echo $bilder[$i -1]->datum?></p>
