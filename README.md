@@ -1,3 +1,18 @@
+# Upload Your Picture
+
+Willkomem bei Upload Your Picture.
+Eine simple Webseite auf welcher man Bilder uploaden kann.
+
+# Get Started
+
+Dowloaade oder clone das Repository und erstelle im Verzeichnis Public einen Ordner mit dem Namen 'upload'.
+Dort werden dann später die Bilder abgespeichert.
+Im Verzeichnis 'Data' findet man ein SQL-Schema, um die Tabelle 'bild' zu erstellen und passe je nach SQL-Server das 'Config.php' an.
+
+
+
+
+
 # Bbc MVC
 
 Willkommen beim MVC des Bbc. In diesem Repository findest du den Code sowie eine Anleitung dazu.
